@@ -20,7 +20,7 @@ const onBtnClick = function(e) {
   e.target.innerHTML = on ? 'on' : 'off';
 
   // Toggle resize listener
-  on === true ?
+  on ?
     window.addEventListener('resize', onResize) :
     window.removeEventListener('resize', onResize);
 };
