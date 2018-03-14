@@ -1,0 +1,37 @@
+<html><body>
+
+<button type="button"  id = "q3">on</button>
+
+<script>
+// Init 'state'
+let on = true;
+
+// Console log resize changes
+const onResize = function(e) {
+  const {clientWidth, clientHeight} = document.body;
+  console.log(`Window Resized to ${clientWidth} by ${clientHeight}`)
+};
+// On button click
+const onBtnClick = function(e) {
+  // Toggle state
+  on = !on;
+
+  // Change button text
+  e.target.innerHTML = on ? 'on' : 'off';
+
+  // Toggle resize listener
+  on === true ?
+    window.addEventListener('resize', onResize) :
+    window.removeEventListener('resize', onResize);
+};
+
+(function() {
+  // Add listener to the button
+  document
+    .getElementById("q3")
+    .addEventListener("click", onBtnClick);
+
+  // Default is on, so the listener should be attached immidiately
+  window.addEventListener('resize', onResize);
+})();
+</script> </body></html>

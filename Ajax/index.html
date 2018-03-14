@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title></title>
+    </head>
+    <body>
+        Must be pretty awesome in <span id="location">...</span>
+    </body>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        function callback(data) {
+            document
+                .getElementById('location')
+                .innerHTML = `${data.city}, ${data.country_code}`;
+        };
+
+        (function() {
+            $.getJSON({
+                dataType: "jsonp",
+                url: 'http://freegeoip.net/json',
+                jsonpCallback: "callback"
+            });
+        })();
+    </script>
+</html>

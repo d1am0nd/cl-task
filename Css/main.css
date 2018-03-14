@@ -1,0 +1,9 @@
+/* Fixed check*/
+body {
+  height: 300vh; }
+
+#header .navbar {
+  position: fixed;
+  top: 30px;
+  width: 100px;
+  padding-left: 10px; }
